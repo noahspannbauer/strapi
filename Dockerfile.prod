@@ -27,4 +27,4 @@ USER node
 EXPOSE 1337
 CMD ["yarn", "start"]
 
-# This is a test
+# This is a test for Vela
