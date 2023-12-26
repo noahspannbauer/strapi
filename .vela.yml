@@ -2,19 +2,21 @@ version: "1"
 
 steps:
   - name: publish strapi
-    image: target/vela-docker:v0.9.0
+    image: target/vela-kaniko:v0.14.0
     pull: always
-    secrets: [ docker_username, docker_password ]
+    # secrets: [ docker_username, docker_password ]
     ruleset:
       event: push
       branch: main
     parameters:
       file: Dockerfile.prod
       registry: index.docker.io
-      repo: noahspan/strapi
+      repo: index.docker.io/noahspan/strapi
       tags:
         - latest
       log_level: trace
+      username: noahspan
+      password: SmFtZXNuMTIkCg==
 
 secrets:
   - name: docker_username
