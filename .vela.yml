@@ -9,6 +9,7 @@ steps:
       event: push
       branch: main
     parameters:
+      dry_run: true
       file: Dockerfile.prod
       registry: index.docker.io
       repo: index.docker.io/noahspan/strapi
