@@ -2,7 +2,7 @@ version: "1"
 
 steps:
   - name: publish strapi
-    image: target/vela-kaniko:0.14.0
+    image: target/vela-kaniko:v0.14.0
     pull: always
     secrets: [ kaniko_username, kaniko_password ]
     ruleset:
