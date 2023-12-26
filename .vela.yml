@@ -4,24 +4,24 @@ steps:
   - name: publish strapi
     image: target/vela-kaniko:latest
     pull: always
-    # secrets: [ kaniko_username, kaniko_password ]
+    secrets: [ kaniko_username, kaniko_password ]
     ruleset:
       event: push
       branch: main
     parameters:
       file: Dockerfile.prod
       registry: index.docker.io
-      repo: index.docker.io/v1/noahspan/strapi
+      repo: index.docker.io/noahspan/strapi
       tags:
         - latest
       log_level: trace
 
-# secrets:
-#   - name: kaniko_username
-#     key: noahspannbauer/kaniko_username
-#     engine: native
-#     type: org
-#   - name: kaniko_password
-#     key: noahspannbauer/kaniko_password
-#     engine: native
-#     type: org
+secrets:
+  - name: kaniko_username
+    key: noahspannbauer/kaniko_username
+    engine: native
+    type: org
+  - name: kaniko_password
+    key: noahspannbauer/kaniko_password
+    engine: native
+    type: org
