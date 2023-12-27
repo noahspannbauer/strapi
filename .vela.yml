@@ -10,8 +10,8 @@ steps:
       branch: main
     parameters:
       file: Dockerfile.prod
-      registry: index.docker.io
-      repo: index.docker.io/noahspan/strapi
+      registry: registry.hub.docker.com
+      repo: registry.hub.docker.com/noahspan/strapi
       log_level: trace
 
 secrets:
