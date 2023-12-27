@@ -1,50 +1,50 @@
 version: "1"
 
-# steps:
-#   - name: publish_strapi
-#     image: target/vela-kaniko:v0.14.0
-#     pull: always
-#     secrets: [ kaniko_username, kaniko_password ]
-#     ruleset:
-#       event: push
-#       branch: main
-#     parameters:
-#       file: Dockerfile.prod
-#       registry: registry.hub.docker.com
-#       repo: registry.hub.docker.com/noahspan/strapi
-#       log_level: trace
-
-# secrets:
-#   - name: kaniko_username
-#     key: noahspannbauer/kaniko_username
-#     engine: native
-#     type: org
-#   - name: kaniko_password
-#     key: noahspannbauer/kaniko_password
-#     engine: native
-#     type: org
-
 steps:
-  - name: publish strapi
-    image: target/vela-docker:v0.9.0
+  - name: publish_strapi
+    image: target/vela-kaniko:v0.14.0
     pull: always
-    secrets: [ docker_username, docker_password ]
+    secrets: [ kaniko_username, kaniko_password ]
     ruleset:
       event: push
       branch: main
     parameters:
       file: Dockerfile.prod
       registry: registry.hub.docker.com
-      repo: noahspan/strapi
-      tags:
-        - latest
+      repo: registry.hub.docker.com/noahspan/strapi
+      log_level: trace
 
 secrets:
-  - name: docker_username
-    key: noahspannbauer/docker_username
+  - name: kaniko_username
+    key: noahspannbauer/kaniko_username
     engine: native
     type: org
-  - name: docker_password
-    key: noahspannbauer/docker_password
+  - name: kaniko_password
+    key: noahspannbauer/kaniko_password
     engine: native
     type: org
+
+# steps:
+#   - name: publish strapi
+#     image: target/vela-docker:v0.9.0
+#     pull: always
+#     secrets: [ docker_username, docker_password ]
+#     ruleset:
+#       event: push
+#       branch: main
+#     parameters:
+#       file: Dockerfile.prod
+#       registry: registry.hub.docker.com
+#       repo: noahspan/strapi
+#       tags:
+#         - latest
+
+# secrets:
+#   - name: docker_username
+#     key: noahspannbauer/docker_username
+#     engine: native
+#     type: org
+#   - name: docker_password
+#     key: noahspannbauer/docker_password
+#     engine: native
+#     type: org
