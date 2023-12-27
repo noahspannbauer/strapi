@@ -12,7 +12,6 @@ steps:
       file: Dockerfile.prod
       registry: registry.hub.docker.com
       repo: registry.hub.docker.com/noahspan/strapi
-      log_level: trace
       tags:
         - latest
 
