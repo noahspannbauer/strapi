@@ -13,7 +13,7 @@ steps:
       registry: index.docker.io
       repo: index.docker.io/noahspan/strapi
       tags:
-        - latest
+        - noahspan/strapi:latest
       log_level: trace
 
 secrets:
